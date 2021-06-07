@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Navbar from "./components/Navbar/Navbar";
-import Info from "./page/Info/Info";
+import Info from "./components/Info/Info";
 
 const App = () => {
     const [pokemonName, setPokemonName] = useState("");
@@ -47,13 +47,7 @@ const App = () => {
                 onSubmit={onSubmit}
                 pokemonName={pokemonName}
             />
-            {!pokemonData ? (
-                <>
-                    {""}
-                </>
-            ) : (
-                <Info pokemonData={pokemonData} pokemonType={pokemonType} />
-            )}
+            <Info pokemonData={pokemonData} pokemonType={pokemonType} />
         </div>
     );
 };
