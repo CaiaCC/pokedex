@@ -48,7 +48,10 @@ const App = () => {
                 />
                 <Switch>
                     <Route path={`/${pokemonName}`}>
-                        <Info />
+                        <Info
+                            pokemonData={pokemonData}
+                            pokemonType={pokemonType}
+                        />
                     </Route>
                 </Switch>
             </div>
