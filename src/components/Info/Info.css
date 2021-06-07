@@ -19,7 +19,7 @@
 
 .info__image {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -33,6 +33,6 @@
     padding: 0 20px;
 }
 
-.info__content__basic__ability {
+.info__content__basic__ability > li {
     margin-left: 3rem;
 }

@@ -31,15 +31,13 @@ const Info = ({ pokemonData, pokemonType }) => {
                         <p>Type: {type}</p>
                         <p>Abilities: </p>
 
-                        {abilities?.map((item, i) => (
-                            <p
-                                key={i}
-                                className="info__content__basic__ability"
-                            >
-                                {item.ability.name}
-                            </p>
-                        ))}
-
+                        <ul className="info__content__basic__ability" >
+                            {abilities?.map((item, i) => (
+                                <li key={i}>
+                                    {item.ability.name}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                     <div className="info__content__stats">
 
