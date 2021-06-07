@@ -8,7 +8,7 @@ const Navbar = ({ handleChange, onSubmit, pokemonName }) => {
             <form>
                 <input
                     type="text"
-                    placeholder="Enter a Pokemon's className"
+                    placeholder="Enter a Pokemon's name"
                     onChange={handleChange}
                     value={pokemonName || ""}
                 />
