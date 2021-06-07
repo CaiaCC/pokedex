@@ -22,19 +22,15 @@ const Info = ({ pokemonData, pokemonType }) => {
                         src={sprites?.back_default}
                         alt={`${name} back image`}
                     />
-                    <img
-                        src={sprites?.back_shiny}
-                        alt={`${name} back image`}
-                    />
+                    <img src={sprites?.back_shiny} alt={`${name} back image`} />
                 </div>
                 <div className="info__content">
                     <div className="info__content__basic">
                         <p>Height: {height}"</p>
                         <p>Weight: {weight} lb</p>
                         <p>Type: {type}</p>
-                        <p className="info__content__basic__abilities">
-                            Abilities:{" "}
-                        </p>
+                        <p>Abilities: </p>
+
                         {abilities?.map((item, i) => (
                             <p
                                 key={i}
@@ -43,15 +39,16 @@ const Info = ({ pokemonData, pokemonType }) => {
                                 {item.ability.name}
                             </p>
                         ))}
+
                     </div>
                     <div className="info__content__stats">
-                        <p>
-                            {stats?.map((item, i) => (
-                                <p key={i}>
-                                    {item.stat.name}: {item.base_stat}
-                                </p>
-                            ))}
-                        </p>
+
+                        {stats?.map((item, i) => (
+                            <p key={i}>
+                                {item.stat.name}: {item.base_stat}
+                            </p>
+                        ))}
+
                     </div>
                 </div>
             </div>
