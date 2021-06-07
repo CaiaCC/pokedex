@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import Navbar from "./components/Navbar";
 import Info from "./components/Info";
-import Lists from "./components/Lists";
 
 const App = () => {
     const [pokemonName, setPokemonName] = useState("");
@@ -49,7 +48,6 @@ const App = () => {
                 pokemonName={pokemonName}
             />
             <Info pokemonData={pokemonData} pokemonType={pokemonType} />
-            <Lists />
         </div>
     );
 };
