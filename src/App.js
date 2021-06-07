@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router
 
 
 const App = () => {
+    const history = useHistory();
+
     return (
-        <Router>
+        <Router history={history}>
             <div className="app">
                 <Switch>
                     <Route></Route>
