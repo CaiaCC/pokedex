@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useHistory,
+} from "react-router-dom";
 import axios from 'axios';
 import Navbar from "./components/Navbar";
 import Info from "./components/Info";
@@ -8,15 +14,7 @@ const App = () => {
     const [pokemonName, setPokemonName] = useState("");
     const [pokemonData, setPokemonData] = useState({});
     const [pokemonType, setPokemonType] = useState("");
-
-    useEffect(() => {
-        axios
-            .get("https://pokeapi.co/api/v2/pokemon/ditto")
-            .then((response) => {
-                setPokemonType(response.data.types[0].type.name);
-                setPokemonData(response.data);
-            });
-    }, [])
+    let history = useHistory();
 
     const getPokemon = async () => {
         try {
@@ -25,9 +23,11 @@ const App = () => {
 
             setPokemonType(response.data.types[0].type.name);
             setPokemonData(response.data);
+            history.push("/info");
         } catch (error) {
             console.error(error.message);
         }
+
     };
 
     const handleChange = (e) => {
@@ -43,13 +43,24 @@ const App = () => {
 
     return (
         <div className="app">
-            <Navbar
-                handleChange={handleChange}
-                onSubmit={onSubmit}
-                pokemonName={pokemonName}
-            />
-            <Info pokemonData={pokemonData} pokemonType={pokemonType} />
-            <Lists />
+            <Router history={history}>
+                <Navbar
+                    handleChange={handleChange}
+                    onSubmit={onSubmit}
+                    pokemonName={pokemonName}
+                />
+                <Switch>
+                    <Route path="/info">
+                        <Info
+                            pokemonData={pokemonData}
+                            pokemonType={pokemonType}
+                        />
+                    </Route>
+                    <Route path="/">
+                        <Lists onSubmit={onSubmit} />
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     );
 };
