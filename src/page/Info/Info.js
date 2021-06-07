@@ -5,7 +5,6 @@ const Info = ({ pokemonData, pokemonType }) => {
     const { name, height, weight, abilities, stats, sprites } = pokemonData;
     const type = pokemonType;
 
-    console.log(stats);
     return (
         <div className="info">
             <h2>{name}</h2>
@@ -23,7 +22,10 @@ const Info = ({ pokemonData, pokemonType }) => {
                         src={sprites?.back_default}
                         alt={`${name} back image`}
                     />
-                    <img src={sprites?.back_shiny} alt={`${name} back image`} />
+                    <img
+                        src={sprites?.back_shiny}
+                        alt={`${name} back image`}
+                    />
                 </div>
                 <div className="info__content">
                     <div className="info__content__basic">
@@ -34,7 +36,10 @@ const Info = ({ pokemonData, pokemonType }) => {
                             Abilities:{" "}
                         </p>
                         {abilities?.map((item, i) => (
-                            <p key={i} className="info__content__basic__ability">
+                            <p
+                                key={i}
+                                className="info__content__basic__ability"
+                            >
                                 {item.ability.name}
                             </p>
                         ))}
