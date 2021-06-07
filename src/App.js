@@ -26,12 +26,25 @@ const App = () => {
         }
     };
 
+    const handleChange = (e) => {
+        setPokemonName(e.target.value.toLowerCase());
+    };
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        getPokemon();
+        setPokemonName("");
+    };
 
     return (
         <Router history={history}>
             <div className="app">
-                <Navbar />
+                <Navbar
+                    handleChange={handleChange}
+                    onSubmit={onSubmit}
+                    pokemonName={pokemonName}
+                />
                 <Switch>
                     <Route></Route>
                 </Switch>
