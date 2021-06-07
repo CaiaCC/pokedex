@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import axios from 'axios';
 import Navbar from "./components/Navbar/Navbar";
+import Info from "./page/Info/Info";
 
 const App = () => {
     const history = useHistory();
@@ -46,7 +47,9 @@ const App = () => {
                     pokemonName={pokemonName}
                 />
                 <Switch>
-                    <Route></Route>
+                    <Route path={`/${pokemonName}`}>
+                        <Info />
+                    </Route>
                 </Switch>
             </div>
         </Router>
